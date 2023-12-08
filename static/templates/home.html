@@ -9,7 +9,7 @@
         <h2>Envie sua Imagem Para segmentação</h2>
         <br>
         <form id="uploadForm" enctype="multipart/form-data">
-            <input type="file" id="fileInput" name="file">
+            <input type="file" id="imagem" name="file">
             <input type="button" id="submitBtn" value="Enviar" onclick="uploadImage()">
         </form>
 
@@ -20,11 +20,11 @@
 
     <script>
         async function uploadImage(){
-            const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
+            const imagem = document.getElementById('imagem');
+            const file = imagem.files[0];
 
-            const formData = new FormData();
-            formData.append('file', file);
+            const formData = new FormData(); //criar um objeto vazio
+            formData.append('file', file); // chave valor
 
             const response = await fetch('/segmentation', {
                 method: 'POST',

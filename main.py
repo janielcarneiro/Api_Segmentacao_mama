@@ -16,9 +16,9 @@ import shutil
 
 app = FastAPI()
 
-# Defina a função de perda personalizada, se necessário
+#função de perda personalizada.
 def dice_loss(y_true, y_pred):
-    # Implemente a lógica da função de perda aqui
+    
     pass
 
 # Carregue o modelo
@@ -44,11 +44,10 @@ async def segmentation(file: UploadFile):
         contents = await file.read()  # Ler o conteúdo do arquivo
         image = Image.open(io.BytesIO(contents))  # Abrir a imagem usando PIL
 
-        # Pré-processamento da imagem (redimensionamento, normalização, etc.)
-        # Exemplo: Redimensionamento para 128x128 e normalização entre 0 e 1
+        # Pré-processamento da imagem (redimensionamento, normalização, Adicionar dimensão batch)
         image = image.resize((128, 128))
         image_array = np.array(image) / 255.0  # Normalização entre 0 e 1
-        image_array = np.expand_dims(image_array, axis=0)  # Adicionar dimensão batch
+        image_array = np.expand_dims(image_array, axis=0)
 
         # Realizar a previsão com o modelo carregado
         prediction = loaded_model.predict(image_array)
