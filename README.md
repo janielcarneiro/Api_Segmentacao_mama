@@ -27,6 +27,11 @@ mamarios, que esta funcionando através de uma API.
 
 ![Quarta](https://github.com/janielcarneiro/Api_Segmentacao_mama/assets/59751645/216f947e-68fc-4b1d-ad6c-ae730a03c79f)
 
+# OBS
+* Para pode utilizar Esse codigo você precissa baixar o modelo, insera na pasta modelo
+  
+  LINK: https://drive.google.com/drive/folders/1kPU1eKaDvpyj399QjM5XU7vnZMrhwi9e?usp=sharing
+  
 # Contato Para duvidas
   * E-mail: janielc895@gmail.com
   * Telefone: (88) 9 9950-1518
