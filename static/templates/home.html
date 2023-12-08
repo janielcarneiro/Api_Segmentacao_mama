@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Estou na minha Home</title>
+    <link href="{{ url_for('static', path='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Envie sua Imagem Para segmentação</h2>
+        <br>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="file">
+            <input type="button" id="submitBtn" value="Enviar" onclick="uploadImage()">
+        </form>
+
+        <div id="response">
+
+        </div>
+    </div>
+
+    <script>
+        async function uploadImage(){
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch('/segmentation', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+            console.log(data.segmented_image);
+
+            const responseDiv = document.getElementById('response');
+
+            // Exibindo a imagem em base64
+            const base64Div = document.createElement('div');
+            base64Div.innerHTML = `<p>Imagem segmentada:</p><img src="data:image/png;base64,${data.segmented_image}" width="300">`;
+            responseDiv.appendChild(base64Div);
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:beige;
+}
+
+h2{
+    color: blue;
+    font-weight: bold;
+}
+
+.container{
+    display: flex;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+}
